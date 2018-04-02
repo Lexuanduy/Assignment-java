@@ -39,24 +39,25 @@ public class CustomersModel {
             Statement stt = connection.createStatement();
             ResultSet rs = stt.executeQuery("SELECT * FROM customers WHERE tenTaiKhoan = '" + tenTaiKhoan + "'");
             while (rs.next()) {
+                int soTaiKhoan = rs.getInt("soTaiKhoan");
                 String ten = rs.getString("tenTaiKhoan");
                 String matKhau = rs.getString("matKhau");
-                cus = new Customers(tenTaiKhoan, matKhau);
+                int soDu = rs.getInt("soDu");
+                cus = new Customers(soTaiKhoan, tenTaiKhoan, matKhau, soDu);
             }
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
         return cus;
     }
-    
+
     public boolean update(Customers cus) {
         Customers cus1 = new Customers();
         try {
             Connection connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/bankinformation?useUnicode=true&characterEncoding=utf-8", "root", "");
             Statement stt = connection.createStatement();
-            stt.execute("UPDATE customers SET soTaiKhoan =" + cus.getSoTaiKhoan()+ " WHERE tenTaiKhoan = '" + cus.getTenTaiKhoan()+ "'");
-            
+            stt.execute("UPDATE customers SET soTaiKhoan =" + cus.getSoTaiKhoan() + " WHERE tenTaiKhoan = '" + cus.getTenTaiKhoan() + "'");
+
         } catch (SQLException ex) {
             ex.printStackTrace();
             return false;

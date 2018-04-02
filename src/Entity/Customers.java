@@ -24,10 +24,6 @@ public class Customers {
     public Customers() {
     }
 
-    public Customers(int soTaiKhoan) {
-        this.soTaiKhoan = soTaiKhoan;
-    }
-    
     public Customers(String tenTaiKhoan, String matKhau) {
         this.tenTaiKhoan = tenTaiKhoan;
         this.matKhau = matKhau;
@@ -35,16 +31,14 @@ public class Customers {
         Date resultdate = new Date(System.currentTimeMillis());
         this.ngayTao = sdf.format(resultdate);
     }
-
-    public Customers(int soTaiKhoan, String tenTaiKhoan, int soDu) {
+    
+    public Customers(int soTaiKhoan, String tenTaiKhoan, String matKhau, int soDu) {
         this.soTaiKhoan = soTaiKhoan;
         this.tenTaiKhoan = tenTaiKhoan;
+        this.matKhau = matKhau;
         this.soDu = soDu;
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
-        Date resultdate = new Date(System.currentTimeMillis());
-        this.ngayTao = sdf.format(resultdate);
     }
-
+    
     public int getSoTaiKhoan() {
         return soTaiKhoan;
     }
