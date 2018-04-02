@@ -43,7 +43,19 @@ public class MainThread {
                     System.out.println("Đăng nhập.");
                     Customers cus = customersController.getInfo();
                     if (customersController.dangNhap(cus)) {
-                        
+                        System.out.println("Đăng nhập tành công!");
+                        System.out.println("Mới quý khách chọn dịch vụ: ");
+                        System.out.println("3.Kiểm tra số dư tài khoản.");
+                        System.out.println("4.Rút tiền.");
+                        System.out.println("5.Chuyển tiền.");
+                        switch (choice) {
+                            case 3:
+                                break;
+                            case 4:
+                                break;
+                            case 5:
+                                break;
+                        }
                     }
                     break;
                 default:
@@ -53,5 +65,4 @@ public class MainThread {
         }
     }
 
-    
 }
