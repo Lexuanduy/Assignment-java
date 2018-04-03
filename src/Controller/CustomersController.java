@@ -44,14 +44,14 @@ public class CustomersController {
         Customers cus2 = ctmodel.searchByUsername(cus.getTenTaiKhoan());
 
         if (cus2 == null) {
-            System.err.println("Tài khoản không tồn tại");
+            System.err.println("Tên tài khoản không tồn tại hoặc đã bị xóa!");
             return false;
         } else {
             if (cus.getMatKhau().equals (cus2.getMatKhau())) {
-                System.out.println("Bạn đã đăng nhập thành công");
+                System.out.println("Đăng nhập thành công!");
                 return true;
             } else {
-                System.out.println("Bạn đã nhập sai mật khẩu. Vui lòng nhập lại");
+                System.out.println("Sai mật khẩu. Vui lòng đăng nhập lại!");
                 return false;
             }
         }

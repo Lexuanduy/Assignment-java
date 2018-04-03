@@ -43,24 +43,36 @@ public class MainThread {
                     System.out.println("Đăng nhập.");
                     Customers cus = customersController.getInfo();
                     if (customersController.dangNhap(cus)) {
-                        System.out.println("Đăng nhập tành công!");
                         System.out.println("Mới quý khách chọn dịch vụ: ");
                         System.out.println("3.Kiểm tra số dư tài khoản.");
                         System.out.println("4.Rút tiền.");
                         System.out.println("5.Chuyển tiền.");
-                        switch (choice) {
-                            case 3:
-                                break;
-                            case 4:
-                                break;
-                            case 5:
-                                break;
-                        }
+                        dichVu(cus);
                     }
-                    break;
                 default:
                     break;
 
+            }
+        }
+    }
+
+    public static void dichVu(Customers cus) {
+        CustomersModel ctmmd = new CustomersModel();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 3:
+                    System.out.println("Số dư tài khoản của quý khách là: " + ctmmd.searchByUsername(cus.getTenTaiKhoan()).getSoDu());
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                default:
+                    System.out.println("Lựa chọn sai.");
+                    break;
             }
         }
     }
