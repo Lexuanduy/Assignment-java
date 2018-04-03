@@ -50,18 +50,4 @@ public class CustomersModel {
         return cus;
     }
 
-    public boolean update(Customers cus) {
-        Customers cus1 = new Customers();
-        try {
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/bankinformation?useUnicode=true&characterEncoding=utf-8", "root", "");
-            Statement stt = connection.createStatement();
-            stt.execute("UPDATE customers SET soTaiKhoan =" + cus.getSoTaiKhoan() + " WHERE tenTaiKhoan = '" + cus.getTenTaiKhoan() + "'");
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-            return false;
-        }
-        return true;
-    }
 }
