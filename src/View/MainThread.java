@@ -51,7 +51,6 @@ public class MainThread {
                     }
                 default:
                     break;
-
             }
         }
     }
@@ -64,9 +63,14 @@ public class MainThread {
             int choice = sc.nextInt();
             switch (choice) {
                 case 3:
-                    System.out.println("Số dư tài khoản của quý khách là: " + ctmmd.searchByUsername(cus.getTenTaiKhoan()).getSoDu());
+                    System.out.println("Số dư tài khoản của quý khách là: " + ctmmd.searchByTen(cus.getTenTaiKhoan()).getSoDu());
                     break;
                 case 4:
+                    System.out.println("Nhập số tiền quý khách muốn rút từ tài khoản: ");
+                    int tienRut = sc.nextInt();
+                    if (tienRut <= (cus.getSoDu() - 50000)) {
+                        
+                    }
                     break;
                 case 5:
                     break;
