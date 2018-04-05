@@ -7,7 +7,6 @@ package Controller;
 
 import Entity.Customers;
 import Model.CustomersModel;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -41,7 +40,7 @@ public class CustomersController {
     }
     
     public boolean dangNhap(Customers cus) {
-        Customers cus2 = ctmodel.searchByUsername(cus.getTenTaiKhoan());
+        Customers cus2 = ctmodel.searchByTen(cus.getTenTaiKhoan());
 
         if (cus2 == null) {
             System.err.println("Tên tài khoản không tồn tại hoặc đã bị xóa!");

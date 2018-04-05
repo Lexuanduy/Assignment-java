@@ -91,9 +91,6 @@ public class Customers {
         if (tenTaiKhoan == null || tenTaiKhoan.length() > 25) {
             return false;
         }
-        if (matKhau == null || matKhau.length() < 6) {
-            return false;
-        }
-        return true;
+        return !(matKhau == null || matKhau.length() < 6);
     }
 }
