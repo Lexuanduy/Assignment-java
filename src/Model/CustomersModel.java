@@ -55,4 +55,18 @@ public class CustomersModel {
         }
         return cus;
     }
+
+    public boolean update(Customers cus) {
+        try {
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/bankinformation?useUnicode=true&characterEncoding=utf-8", "root", "");
+            Statement stt = connection.createStatement();
+            stt.execute("UPDATE customers SET soDu =" + cus.getSoDu() + " WHERE tenTaiKhoan = '" + cus.getTenTaiKhoan() + "'");
+
+        } catch (SQLException ex) {
+            return false;
+        }
+        return true;
+    }
+
 }

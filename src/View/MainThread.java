@@ -68,8 +68,12 @@ public class MainThread {
                 case 4:
                     System.out.println("Nhập số tiền quý khách muốn rút từ tài khoản: ");
                     int tienRut = sc.nextInt();
-                    if (tienRut <= (cus.getSoDu() - 50000)) {
-                        
+                    if (tienRut > ctmmd.searchByTen(cus.getTenTaiKhoan()).getSoDu() && ctmmd.searchByTen(cus.getTenTaiKhoan()).getSoDu() < 50000) {
+                        System.out.println("Số dư trong tài khoản không đủ để rút.");
+                    } else {
+                        cus.setSoDu(ctmmd.searchByTen(cus.getTenTaiKhoan()).getSoDu() - tienRut);
+                        ctmmd.update(cus);
+                        System.out.println("Rút tiền thành công!");
                     }
                     break;
                 case 5:
